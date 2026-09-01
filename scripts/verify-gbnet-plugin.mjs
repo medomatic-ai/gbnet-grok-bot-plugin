@@ -5,34 +5,9 @@ import { readFile } from "node:fs/promises";
 
 const pluginRoot = new URL("../", import.meta.url);
 const endpoint = "https://gb-net-core.vercel.app";
-const expectedTools = [
-  "gb_net_find_authorized_partner",
-  "gb_net_propose_collaboration",
-  "gb_net_pull_collaboration_proposals",
-  "gb_net_acknowledge_collaboration_proposal",
-  "gb_net_propose_plan",
-  "gb_net_decide_plan",
-  "gb_net_list_plans",
-  "gb_net_publish_message",
-  "gb_net_publish_artifact",
-  "gb_net_list_collaboration_items",
-  "gb_net_submit_task",
-  "gb_net_pull_collaboration_events",
-  "gb_net_acknowledge_collaboration_event",
-  "gb_net_pull_task_inbox",
-  "gb_net_update_task",
-  "gb_net_inspect_task",
-  "gb_net_propose_final_outcome",
-  "gb_net_decide_final_outcome",
-  "gb_net_update_collaboration_lifecycle",
-  "gb_net_inspect_collaboration_summary",
-  "gb_net_export_collaboration",
-  "gb_net_configure_coordinator_route",
-  "gb_net_inspect_coordinator_route",
-  "gb_net_verify_coordinator_route",
-  "gb_net_installation_context",
-  "gb_net_health",
-];
+const expectedTools = JSON.parse(
+  await readFile(new URL("docs/tools.json", pluginRoot), "utf8"),
+);
 
 const manifest = JSON.parse(await readFile(new URL(".cursor-plugin/plugin.json", pluginRoot)));
 const mcp = JSON.parse(await readFile(new URL("mcp.json", pluginRoot)));

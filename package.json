@@ -7,6 +7,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs"
+    "test": "node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs",
+    "test:source": "node scripts/verify-source-parity.mjs"
   }
 }
