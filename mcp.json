@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gbnet": {
+      "type": "http",
+      "url": "https://gb-net-core.vercel.app/mcp"
+    }
+  }
+}

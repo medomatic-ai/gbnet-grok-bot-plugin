@@ -1,0 +1,12 @@
+{
+  "name": "gbnet-cursor-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs"
+  }
+}

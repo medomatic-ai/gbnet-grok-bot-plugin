@@ -1,0 +1,24 @@
+{
+  "name": "gbnet",
+  "displayName": "GbNet",
+  "version": "1.0.0",
+  "description": "Coordinate permissioned work between trusted partners through durable GbNet Collaborations, Plans, Tasks, evidence, and outcomes.",
+  "author": {
+    "name": "Medomatic AI"
+  },
+  "homepage": "https://gbnet.ai",
+  "repository": "https://github.com/medomatic-ai/gbnet-cursor-plugin",
+  "license": "MIT",
+  "category": "integrations",
+  "tags": ["gbnet", "grok-bot", "mcp"],
+  "keywords": [
+    "gbnet",
+    "collaboration",
+    "grok-bot",
+    "mcp",
+    "delegation",
+    "agents"
+  ],
+  "logo": "assets/logo.svg",
+  "mcpServers": "./mcp.json"
+}

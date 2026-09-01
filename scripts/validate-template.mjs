@@ -249,6 +249,49 @@ function resolveMarketplaceSource(source, pluginRoot) {
 
 async function main() {
   const marketplacePath = path.join(repoRoot, ".cursor-plugin", "marketplace.json");
+  if (!(await pathExists(marketplacePath))) {
+    const pluginDir = repoRoot;
+    const manifestPath = path.join(pluginDir, ".cursor-plugin", "plugin.json");
+    const pluginManifest = await readJsonFile(manifestPath, "Root plugin manifest");
+    if (!pluginManifest) {
+      summarizeAndExit();
+      return;
+    }
+
+    const pluginName = pluginManifest.name;
+    if (typeof pluginName !== "string" || !pluginNamePattern.test(pluginName)) {
+      addError(
+        'Root plugin "name" must be lowercase and use only alphanumerics, hyphens, and periods.'
+      );
+    }
+    for (const field of ["description", "version", "license"]) {
+      if (typeof pluginManifest[field] !== "string" || pluginManifest[field].length === 0) {
+        addError(`Root plugin manifest field "${field}" is required for submission readiness.`);
+      }
+    }
+    if (
+      !pluginManifest.author ||
+      typeof pluginManifest.author.name !== "string" ||
+      pluginManifest.author.name.length === 0
+    ) {
+      addError('Root plugin manifest field "author.name" is required for submission readiness.');
+    }
+
+    const manifestFields = ["logo", "rules", "skills", "agents", "commands", "hooks", "mcpServers"];
+    for (const field of manifestFields) {
+      const values = extractPathValues(pluginManifest[field]);
+      for (const value of values) {
+        await validateReferencedPath(pluginDir, field, value, pluginName ?? "root-plugin");
+      }
+    }
+    await validateComponentFrontmatter(pluginDir, pluginName ?? "root-plugin");
+    if (!(await pathExists(path.join(pluginDir, "mcp.json")))) {
+      addError("Root plugin is missing mcp.json.");
+    }
+    summarizeAndExit();
+    return;
+  }
+
   const marketplace = await readJsonFile(marketplacePath, "Marketplace manifest");
   if (!marketplace) {
     summarizeAndExit();
