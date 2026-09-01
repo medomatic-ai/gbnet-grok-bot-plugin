@@ -29,6 +29,7 @@ This read-only check extracts every literal `server.registerTool(...)` name from
 - **Passed:** `npm run test:source -- /path/to/gb-net` matched all 26 tools in the current GbNet Core Plugin source to the public inventory and capability documentation.
 - **Passed:** A freshly packed Core Plugin was queried through MCP `tools/list`; the 26 runtime-advertised tool names exactly matched `docs/tools.json`.
 - **Passed:** The selected GbNet checkout's focused `tests/hosted-core-connector.test.ts` suite passed 7/7 cases covering full OAuth authorization, dynamic registration with an expiring connection code, authenticated Streamable HTTP tool discovery and calls, refresh, revocation, and fail-closed negative cases.
+- **Passed:** GitHub private vulnerability reporting is enabled for the public repository, matching the reporting path documented in `SECURITY.md`.
 - **Not yet accepted:** Selecting **Authenticate**, completing Partner Installation pairing, discovering the authenticated tool list, and making representative read/write calls remain unexercised. These steps create an OAuth client and require an authorized disposable test installation, so complete them explicitly before submission.
 
 ## Manual local check
