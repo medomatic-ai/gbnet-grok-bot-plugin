@@ -45,7 +45,7 @@ This read-only check extracts every literal `server.registerTool(...)` name from
 
 Before submitting, an authorized Medomatic AI publisher must:
 
-1. Resolve section 3.1 of the current [Cursor Marketplace Publisher Terms](https://cursor.com/marketplace-publisher-terms), which says a Marketplace plugin must be available at no direct or indirect cost, against GbNet's hosted-service pricing.
+1. Confirm the intended product/legal posture under sections 1.6 and 3.1 of the current [Cursor Marketplace Publisher Terms](https://cursor.com/marketplace-publisher-terms): the connector, installation, updates, and authentication flow are free, while any charge is for the separately described hosted GbNet service. Cursor's current authored and verified [Ahrefs](https://cursor.com/marketplace/cursor/ahrefs), [Semrush](https://cursor.com/marketplace/cursor/semrush), [Similarweb](https://cursor.com/marketplace/cursor/similarweb), and [Outreach](https://cursor.com/marketplace/cursor/outreach) plugins provide strong operating precedent for free connectors whose provider accounts require paid plans, subscriptions, seats, or credits, but the published Terms do not make that an express legal safe harbor.
 2. Publish or confirm the applicable GbNet terms of service, privacy policy, user disclosures, and support path required by the Publisher Terms. This repository's [data-use disclosure](data-use.md) is technical documentation, not a substitute for binding legal policies.
 3. Complete the authenticated manual check above with a disposable Partner Installation and sanitized evidence.
 4. Review and accept the Publisher Terms in the authorized publisher account. Repository publication does not authorize this acceptance.
