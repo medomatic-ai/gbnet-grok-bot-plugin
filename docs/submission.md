@@ -17,7 +17,8 @@ The gate checks the plugin manifest, frontmatter, relative paths, logo, MCP conf
 - **Passed:** `npm test`; 26 tools are documented and the production metadata and unauthenticated MCP challenge are healthy.
 - **Passed:** Cursor 3.18.9 loaded the copied local package and discovered one MCP server and the `gbnet-collaboration` skill.
 - **Passed:** Cursor's bundled `@modelcontextprotocol/sdk` 1.25.1 completed production protected-resource discovery, authorization-server discovery, dynamic client registration, and PKCE authorization-redirect generation. No Partner Installation was paired.
-- **Not yet accepted:** Cursor 3.18.9's local UI session did not launch interactive OAuth when the server returned its challenge, so authenticated tool discovery and calls remain unexercised. Repeat this check from the intended publisher/test account and complete pairing before submission.
+- **Passed:** A clean isolated Cursor 3.18.9 local-plugin session surfaced the native **Connect with GbNet** authentication card after the agent requested the disconnected MCP server. This proves that Cursor recognizes the server's OAuth challenge and can route it into the interactive authorization flow.
+- **Not yet accepted:** Selecting **Authenticate**, completing Partner Installation pairing, discovering the authenticated tool list, and making representative read/write calls remain unexercised. These steps create an OAuth client and require an authorized disposable test installation, so complete them explicitly before submission.
 
 ## Manual local check
 
