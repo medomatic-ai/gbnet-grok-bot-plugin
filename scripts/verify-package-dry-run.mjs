@@ -2,6 +2,7 @@
 
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
+import { readFile } from "node:fs/promises";
 import { promisify } from "node:util";
 
 const execFileAsync = promisify(execFile);
@@ -12,25 +13,8 @@ const { stdout } = await execFileAsync(
 );
 const result = JSON.parse(stdout)[0];
 const actualFiles = result.files.map(({ path }) => path).sort();
-const expectedFiles = [
-  ".cursor-plugin/plugin.json",
-  "LICENSE",
-  "README.md",
-  "SECURITY.md",
-  "SUPPORT.md",
-  "assets/logo.svg",
-  "docs/capabilities.md",
-  "docs/data-use.md",
-  "docs/marketplace-listing.md",
-  "docs/package-inventory.json",
-  "docs/policies.md",
-  "docs/release-contract.json",
-  "docs/submission.md",
-  "docs/tools.json",
-  "mcp.json",
-  "package.json",
-  "skills/gbnet-collaboration/SKILL.md",
-].sort();
+const inventory = JSON.parse(await readFile("docs/package-inventory.json", "utf8"));
+const expectedFiles = [...inventory.publicFiles].sort();
 
 assert.equal(result.name, "gbnet-grok-bot-plugin");
 assert.equal(result.version, "1.0.0");

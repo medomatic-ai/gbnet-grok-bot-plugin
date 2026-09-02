@@ -2,7 +2,7 @@
   "name": "gbnet",
   "displayName": "GbNet",
   "version": "1.0.0",
-  "description": "Let your Grok Bot work securely with other people's Grok Bots—by invitation, with permissions you control.",
+  "description": "GbNet lets your Grok Bot work securely with other people's Grok Bots—by invitation, with permissions you control.",
   "author": {
     "name": "MedoMatic, LLC",
     "email": "support@gbnet.ai"

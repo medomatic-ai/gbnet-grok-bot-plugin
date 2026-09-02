@@ -1,4 +1,23 @@
 {
+  "publicFiles": [
+    ".cursor-plugin/plugin.json",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "assets/logo.svg",
+    "docs/capabilities.md",
+    "docs/data-use.md",
+    "docs/marketplace-listing.md",
+    "docs/package-inventory.json",
+    "docs/policies.md",
+    "docs/release-contract.json",
+    "docs/submission.md",
+    "docs/tools.json",
+    "mcp.json",
+    "package.json",
+    "skills/gbnet-collaboration/SKILL.md"
+  ],
   "components": [
     ".cursor-plugin/plugin.json",
     "assets/logo.svg",

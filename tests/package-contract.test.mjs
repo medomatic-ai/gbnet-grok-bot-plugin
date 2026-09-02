@@ -16,6 +16,10 @@ test("uses the frozen Marketplace package identity and hosted endpoint", async (
   assert.equal(manifest.author?.name, "MedoMatic, LLC");
   assert.equal(manifest.author?.email, "support@gbnet.ai");
   assert.equal(
+    manifest.description,
+    "GbNet lets your Grok Bot work securely with other people's Grok Bots—by invitation, with permissions you control.",
+  );
+  assert.equal(
     manifest.repository,
     "https://github.com/medomatic-ai/gbnet-grok-bot-plugin",
   );
@@ -48,6 +52,7 @@ test("leads with Grok Bot and accurately separates distribution from service", a
   assert.match(listing, /Cursor Marketplace is the distribution channel/);
   assert.match(combined, /Free Plan/);
   assert.match(combined, /one active Trusted Partnership/);
+  assert.doesNotMatch(listing, /includes one owner-bound Partner Installation and one active Trusted Partnership/);
   assert.match(combined, /paid hosted features/i);
   assert.match(
     listing,
@@ -97,6 +102,25 @@ test("declares a complete inspectable component inventory", async () => {
     ".cursor-plugin/plugin.json",
     "assets/logo.svg",
     "mcp.json",
+    "skills/gbnet-collaboration/SKILL.md",
+  ]);
+  assert.deepEqual(inventory.publicFiles, [
+    ".cursor-plugin/plugin.json",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "assets/logo.svg",
+    "docs/capabilities.md",
+    "docs/data-use.md",
+    "docs/marketplace-listing.md",
+    "docs/package-inventory.json",
+    "docs/policies.md",
+    "docs/release-contract.json",
+    "docs/submission.md",
+    "docs/tools.json",
+    "mcp.json",
+    "package.json",
     "skills/gbnet-collaboration/SKILL.md",
   ]);
   assert.deepEqual(inventory.excluded, [

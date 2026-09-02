@@ -18,7 +18,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "node --test tests/package-contract.test.mjs && node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs",
+    "test": "node --test tests/*.test.mjs && node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs",
     "test:source": "node scripts/verify-source-parity.mjs",
     "test:secrets": "node scripts/scan-public-package.mjs",
     "test:package": "node scripts/verify-package-dry-run.mjs",
