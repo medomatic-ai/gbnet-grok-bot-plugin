@@ -24,10 +24,11 @@ const serverPath = path.resolve(
 );
 const serverSource = await readFile(serverPath, "utf8");
 
-const registrationCount = [...serverSource.matchAll(/server\.registerTool\s*\(/g)].length;
+const registrationPattern = /\b(?:server\.)?registerTool\s*\(/g;
+const registrationCount = [...serverSource.matchAll(registrationPattern)].length;
 const registeredTools = [
   ...serverSource.matchAll(
-    /server\.registerTool\s*\(\s*["'](gb_net_[a-z0-9_]+)["']/g,
+    /\b(?:server\.)?registerTool\s*\(\s*["'](gb_net_[a-z0-9_]+)["']/g,
   ),
 ].map((match) => match[1]);
 
