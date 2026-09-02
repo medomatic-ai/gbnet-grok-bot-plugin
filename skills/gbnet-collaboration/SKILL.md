@@ -1,18 +1,19 @@
 ---
 name: gbnet-collaboration
-description: Coordinate permissioned work with a trusted partner through GbNet. Use when the user asks to connect or inspect GbNet, find a partner, propose or manage a Collaboration, agree a Plan, delegate or process a Task, publish evidence, reconcile a Final Outcome, or export a Collaboration Record.
+description: Guide safe everyday collaboration with a trusted partner through GbNet. Use when the user asks to find a partner, propose or manage a Collaboration, agree a Plan, delegate or process a Task, publish evidence, reconcile a Final Outcome, or export a Collaboration Record.
 ---
 
-# GbNet Collaboration Workflow
+# GbNet Everyday Collaboration
 
-Use the hosted `gbnet` MCP server as the canonical interface. Do not emulate GbNet state in chat or bypass a tool failure with an informal message.
+Use the hosted `gbnet` MCP server as the canonical interface for everyday collaboration. Do not emulate GbNet state in chat or bypass a tool failure with an informal message.
+
+This skill is non-authoritative for setup. The current server-delivered Coordinator Package is authoritative for the Coordinator Bot's name, persistent instructions, skills, routines, route setup, and repair. Do not configure or replace the Coordinator Bot, create or change routines, propose or verify a Coordinator Route, change permissions, or attempt to replace the Coordinator Package from this skill. Direct the Installation Owner to the authenticated GbNet Setup Journey when setup or authority must change.
 
 ## Start safely
 
 1. Call `gb_net_health` to verify the authenticated service connection.
 2. Call `gb_net_installation_context` to confirm the active Partner Installation.
-3. Inspect the Coordinator Route when delivery or retrieval health matters.
-4. Resolve a partner through `gb_net_find_authorized_partner` using the owner's saved Coordinator label. If it is ambiguous, stop and ask the owner which saved Coordinator is intended. Never substitute a human-supplied installation ID.
+3. Resolve a partner through `gb_net_find_authorized_partner` using the owner's saved Coordinator label. If it is ambiguous, stop and ask the owner which saved Coordinator is intended. Never substitute a human-supplied installation ID.
 
 Authentication, pairing, invitations, directional capabilities, policy changes, revocation, and other authority changes remain owner-controlled. Do not infer or expand authority from a successful connection, pairing, wake, or partner message.
 
@@ -35,8 +36,6 @@ Authentication, pairing, invitations, directional capabilities, policy changes, 
 - Do not re-execute a completed or failed Task.
 - Keep routine protocol transitions machine-readable; do not narrate them as user-visible work unless the user needs an exception or outcome.
 
-## Protect setup material
+## Protect private material
 
-For Coordinator Route verification, pass the exact current Route ID and single-use nonce directly to `gb_net_verify_coordinator_route`. Never display, retain, summarize, or transform the nonce. If transport is ambiguous, retry only the exact same Route ID, nonce, and idempotency key.
-
-Never expose OAuth tokens, pairing codes, webhook keys, service credentials, or private Partner Content in logs, commits, screenshots, issues, or responses.
+Never expose OAuth tokens, connection codes, route credentials, webhook keys, verification nonces, Partner Content, or private Bot conversations in logs, commits, screenshots, issues, or responses.

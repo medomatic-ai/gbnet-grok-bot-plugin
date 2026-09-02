@@ -1,0 +1,16 @@
+{
+  "components": [
+    ".cursor-plugin/plugin.json",
+    "assets/logo.svg",
+    "mcp.json",
+    "skills/gbnet-collaboration/SKILL.md"
+  ],
+  "excluded": [
+    "credentials",
+    "customer data",
+    "Partner Content",
+    "private Bot conversations",
+    "binaries",
+    "proprietary Core Service implementation"
+  ]
+}

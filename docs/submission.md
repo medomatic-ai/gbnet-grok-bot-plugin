@@ -1,61 +1,42 @@
-# Cursor Marketplace submission
+# Grok Bot Marketplace submission preparation
 
-This repository was created from Cursor's official `cursor/plugin-template` and adapts its validator for the supported single-plugin layout.
+This repository is the inspectable Cursor-format package intended for distribution through Cursor Marketplace to Grok Bot's Plugins Marketplace. Cursor Marketplace is the distribution and review channel; Grok Bot is the product target.
 
-## Automated release gate
+## Automated package gate
 
-Run:
-
-```sh
-npm test
-```
-
-The gate checks the plugin manifest, frontmatter, relative paths, logo, MCP configuration, documented tool inventory, absence of credential-bearing MCP configuration, production OAuth discovery, and the protected MCP challenge.
-
-When preparing a release alongside an authorized GbNet source checkout, also run:
+Use Node.js 24 from a clean checkout of the exact candidate commit:
 
 ```sh
-npm run test:source -- /path/to/gb-net
+npm run check:release
+npm run test:source -- /path/to/authorized/gb-net
+git status --short --branch
 ```
 
-This read-only check extracts every literal `server.registerTool(...)` name from the selected Core Plugin source and requires exact parity with the public connector inventory and capability documentation. It does not modify or publish the proprietary source.
+`check:release` validates the manifest, component discovery, public release-contract projection, documentation and policy consistency, hosted OAuth metadata, unauthenticated MCP challenge, a bounded secret scan, and the exact `npm pack --dry-run` contents. `test:source` compares the package inventory with every literal Core Plugin registration and the committed Marketplace Release Contract in the authorized source checkout. It reads the source; it never copies proprietary implementation into this repository.
 
-## Evidence recorded 2026-09-01
+Public CI runs `npm run check:release` on Node.js 24 for every pull request and push to `main`. Preserve the successful workflow URL and commit SHA as sanitized evidence. A local pass does not substitute for CI on the pushed candidate.
 
-- **Passed:** `npm test`; 26 tools are documented and the production metadata and unauthenticated MCP challenge are healthy.
-- **Passed:** Cursor 3.18.9 loaded the copied local package and discovered one MCP server and the `gbnet-collaboration` skill.
-- **Passed:** Cursor's bundled `@modelcontextprotocol/sdk` 1.25.1 completed production protected-resource discovery, authorization-server discovery, dynamic client registration, and PKCE authorization-redirect generation. No Partner Installation was paired.
-- **Passed:** A clean isolated Cursor 3.18.9 local-plugin session surfaced the native **Connect with GbNet** authentication card after the agent requested the disconnected MCP server. This proves that Cursor recognizes the server's OAuth challenge and can route it into the interactive authorization flow.
-- **Passed:** `npm run test:source -- /path/to/gb-net` matched all 26 tools in the current GbNet Core Plugin source to the public inventory and capability documentation.
-- **Passed:** A freshly packed Core Plugin was queried through MCP `tools/list`; the 26 runtime-advertised tool names exactly matched `docs/tools.json`.
-- **Passed:** The selected GbNet checkout's focused `tests/hosted-core-connector.test.ts` suite passed 7/7 cases covering full OAuth authorization, dynamic registration with an expiring connection code, authenticated Streamable HTTP tool discovery and calls, refresh, revocation, and fail-closed negative cases.
-- **Passed:** GitHub private vulnerability reporting is enabled for the public repository, matching the reporting path documented in `SECURITY.md`.
-- **Not yet accepted:** Selecting **Authenticate**, completing Partner Installation pairing, discovering the authenticated tool list, and making representative read/write calls remain unexercised. These steps create an OAuth client and require an authorized disposable test installation, so complete them explicitly before submission.
+## Human and downstream gates
 
-## Manual local check
+Issue #63 prepares the package only. It does not establish Grok Bot compatibility, legal clearance, Marketplace submission, or public listing approval. Before an authorized MedoMatic, LLC representative submits the candidate, the wider release must also provide current evidence for:
 
-1. Copy the plugin package into `~/.cursor/plugins/local/gbnet` using the command in the repository README.
-2. Reload Cursor.
-3. Open **Customize** and confirm the plugin, MCP server, and skill are discovered.
-4. Start OAuth and connect a disposable test Partner Installation using a fresh short-lived code from GbNet setup.
-5. Run `gb_net_health`, `gb_net_installation_context`, and `gb_net_inspect_coordinator_route`.
-6. Remove the copied local package after the marketplace package is installed.
+1. unauthenticated [Terms](https://gbnet.ai/terms), [Privacy](https://gbnet.ai/privacy), [Support](https://gbnet.ai/support), and [Security](https://gbnet.ai/security) pages;
+2. public Free onboarding and the one-active-Trusted-Partnership limit;
+3. an authenticated, sanitized Grok Bot Marketplace Acceptance run through the intended public journey;
+4. compatibility-path migration acceptance for an existing disposable installation;
+5. Marketplace Legal Clearance by an authorized MedoMatic, LLC representative; and
+6. that representative's review and acceptance of Cursor Publisher Terms and binding submission.
 
-## Publisher gates
+Agents must not accept legal terms or perform the binding submission. A successful package gate is necessary evidence, not a guarantee of approval or publication.
 
-Before submitting, an authorized Medomatic AI publisher must:
+## Candidate application values
 
-1. Confirm the intended product/legal posture under sections 1.6 and 3.1 of the current [Cursor Marketplace Publisher Terms](https://cursor.com/marketplace-publisher-terms): the connector, installation, updates, and authentication flow are free, while any charge is for the separately described hosted GbNet service. Cursor's current authored and verified [Ahrefs](https://cursor.com/marketplace/cursor/ahrefs), [Semrush](https://cursor.com/marketplace/cursor/semrush), [Similarweb](https://cursor.com/marketplace/cursor/similarweb), and [Outreach](https://cursor.com/marketplace/cursor/outreach) plugins provide strong operating precedent for free connectors whose provider accounts require paid plans, subscriptions, seats, or credits, but the published Terms do not make that an express legal safe harbor.
-2. Publish or confirm the applicable GbNet terms of service, privacy policy, user disclosures, and support path required by the Publisher Terms. This repository's [data-use disclosure](data-use.md) is technical documentation, not a substitute for binding legal policies.
-3. Complete the authenticated manual check above with a disposable Partner Installation and sanitized evidence.
-4. Review and accept the Publisher Terms in the authorized publisher account. Repository publication does not authorize this acceptance.
+- Repository: `https://github.com/medomatic-ai/gbnet-grok-bot-plugin`
+- Machine name: `gbnet`
+- Display name: `GbNet`
+- Publisher: `MedoMatic, LLC`
+- Public contact: `support@gbnet.ai`
+- Product: `https://gbnet.ai`
+- MCP endpoint: `https://core.gbnet.ai/mcp`
 
-## Publish
-
-Submit this public repository URL at <https://cursor.com/marketplace/publish>:
-
-```text
-https://github.com/medomatic-ai/gbnet-cursor-plugin
-```
-
-Do not submit until the automated gate, authenticated manual check, and publisher gates all pass. Cursor manually reviews marketplace plugins and reviews later updates as well.
+Do not submit until the exact repository exists at the candidate URL, public CI passes on its current `main`, and all human and downstream gates above have current evidence.

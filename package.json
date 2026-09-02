@@ -1,13 +1,27 @@
 {
-  "name": "gbnet-cursor-plugin",
+  "name": "gbnet-grok-bot-plugin",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "files": [
+    ".cursor-plugin/",
+    "assets/",
+    "docs/",
+    "skills/",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "mcp.json"
+  ],
   "engines": {
     "node": ">=24"
   },
   "scripts": {
-    "test": "node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs",
-    "test:source": "node scripts/verify-source-parity.mjs"
+    "test": "node --test tests/package-contract.test.mjs && node scripts/validate-template.mjs && node scripts/verify-gbnet-plugin.mjs",
+    "test:source": "node scripts/verify-source-parity.mjs",
+    "test:secrets": "node scripts/scan-public-package.mjs",
+    "test:package": "node scripts/verify-package-dry-run.mjs",
+    "check:release": "npm test && npm run test:secrets && npm run test:package"
   }
 }

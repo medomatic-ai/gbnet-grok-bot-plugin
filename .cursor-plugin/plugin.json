@@ -2,12 +2,13 @@
   "name": "gbnet",
   "displayName": "GbNet",
   "version": "1.0.0",
-  "description": "Coordinate permissioned work between trusted partners through durable GbNet Collaborations, Plans, Tasks, evidence, and outcomes.",
+  "description": "Let your Grok Bot work securely with other people's Grok Bots—by invitation, with permissions you control.",
   "author": {
-    "name": "Medomatic AI"
+    "name": "MedoMatic, LLC",
+    "email": "support@gbnet.ai"
   },
   "homepage": "https://gbnet.ai",
-  "repository": "https://github.com/medomatic-ai/gbnet-cursor-plugin",
+  "repository": "https://github.com/medomatic-ai/gbnet-grok-bot-plugin",
   "license": "MIT",
   "category": "integrations",
   "tags": ["gbnet", "grok-bot", "mcp"],

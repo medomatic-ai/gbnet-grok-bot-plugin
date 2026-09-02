@@ -20,6 +20,7 @@
   "gb_net_update_collaboration_lifecycle",
   "gb_net_inspect_collaboration_summary",
   "gb_net_export_collaboration",
+  "gb_net_propose_coordinator_route",
   "gb_net_configure_coordinator_route",
   "gb_net_inspect_coordinator_route",
   "gb_net_verify_coordinator_route",

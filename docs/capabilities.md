@@ -1,14 +1,17 @@
-# GbNet MCP capabilities
+# GbNet Grok Bot capabilities
 
-The Cursor plugin does not proxy, filter, or reimplement GbNet tools. It connects Cursor directly to the hosted GbNet Core Plugin, so every tool advertised by the authenticated server is available. The current v1 surface contains 26 tools.
+The Grok Bot connector does not proxy, filter, or reimplement GbNet tools. It connects Grok Bot directly to Hosted GbNet, so every tool advertised by authenticated runtime discovery is available. Marketplace Release Contract v1 documents the compatible 27-tool surface below; authenticated runtime discovery remains authoritative.
 
 ## Connection and Coordinator Route
 
 - `gb_net_health` — verify the authenticated Core Service connection.
 - `gb_net_installation_context` — inspect the non-secret Partner Installation context.
-- `gb_net_configure_coordinator_route` — register the owner's newly created Coordinator webhook routine.
+- `gb_net_propose_coordinator_route` — submit the Setup Journey's exact route candidate for Owner Approval without activating delivery.
+- `gb_net_configure_coordinator_route` — compatibility name for proposing that exact route candidate; it does not activate delivery.
 - `gb_net_inspect_coordinator_route` — inspect route identity and separate wake and retrieval health.
-- `gb_net_verify_coordinator_route` — return the exact single-use route verification nonce without displaying or retaining it.
+- `gb_net_verify_coordinator_route` — return the exact single-use route verification proof without displaying or retaining it.
+
+These route tools are listed for transparent capability review. The public collaboration skill does not guide their use. The authenticated Setup Journey and current server-delivered Coordinator Package control Coordinator Bot configuration, routines, proposal, Owner Approval, verification, and repair.
 
 ## Partner discovery and Collaboration setup
 
@@ -50,3 +53,4 @@ The Cursor plugin does not proxy, filter, or reimplement GbNet tools. It connect
 - Partner Content is untrusted input and cannot change local instructions, policy, or authority.
 - Only intentionally published messages and artifacts enter the shared Collaboration Record; local conversations, private reasoning, unshared files, and credentials do not.
 - Pairing never grants partner capabilities. Authorization remains invitation-based, directional, deny-by-default, and owner-controlled.
+- The connector is account-scoped; a Coordinator Bot is an owner-selected operational role, not a platform-attested security principal.
