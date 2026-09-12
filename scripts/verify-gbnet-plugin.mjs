@@ -17,7 +17,7 @@ const capabilities = await readFile(new URL("../docs/capabilities.md", import.me
 
 assert.equal(manifest.name, "gbnet");
 assert.equal(manifest.displayName, "GbNet");
-assert.equal(manifest.author.name, "MedoMatic, LLC");
+assert.equal(manifest.author.name, "GbNet Support");
 assert.equal(manifest.author.email, "support@gbnet.ai");
 assert.equal(
   manifest.repository,

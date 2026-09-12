@@ -13,7 +13,7 @@ test("uses the frozen Marketplace package identity and hosted endpoint", async (
   assert.equal(manifest.name, "gbnet");
   assert.equal(manifest.displayName, "GbNet");
   assert.equal(manifest.version, "1.0.0");
-  assert.equal(manifest.author?.name, "MedoMatic, LLC");
+  assert.equal(manifest.author?.name, "GbNet Support");
   assert.equal(manifest.author?.email, "support@gbnet.ai");
   assert.equal(
     manifest.description,
