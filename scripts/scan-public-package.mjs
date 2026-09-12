@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { execFile } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -35,6 +36,9 @@ for (const relativePath of files) {
   }
 
   const content = await readFile(path.join(repoRoot, relativePath));
+  // Exact owner-supplied brand asset; no other binary or replacement is exempt.
+  if (relativePath === "assets/logo.png" &&
+      createHash("sha256").update(content).digest("hex") === "b61afa81793e751a15b62bd94767bd22475a78a7f7a2d88c41339825b4a81503") continue;
   if (content.includes(0)) {
     findings.push(`${relativePath}: binary content`);
     continue;

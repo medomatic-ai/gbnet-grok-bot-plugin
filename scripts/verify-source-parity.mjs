@@ -25,7 +25,19 @@ const serverPath = path.resolve(
   sourceRoot,
   "packages/core-plugin/src/server.ts",
 );
-const serverSource = await readFile(serverPath, "utf8");
+// Follow local source imports so extracted registration modules cannot disappear
+// from static parity. The Core release gate separately proves runtime discovery.
+const visited = new Set();
+async function readRegistrationSources(file) {
+  if (visited.has(file)) return "";
+  visited.add(file);
+  const source = await readFile(file, "utf8");
+  const imports = [...source.matchAll(/from\s+["'](\.\/[^"']+)\.js["']/g)];
+  const children = await Promise.all(imports.map(match =>
+    readRegistrationSources(path.resolve(path.dirname(file), `${match[1]}.ts`))));
+  return [source, ...children].join("\n");
+}
+const serverSource = await readRegistrationSources(serverPath);
 const sourceContract = JSON.parse(
   await readFile(
     path.resolve(sourceRoot, "docs/marketplace/release-contract-v1.json"),

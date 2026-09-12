@@ -5,7 +5,7 @@
     "README.md",
     "SECURITY.md",
     "SUPPORT.md",
-    "assets/logo.svg",
+    "assets/logo.png",
     "docs/capabilities.md",
     "docs/data-use.md",
     "docs/marketplace-listing.md",
@@ -20,7 +20,7 @@
   ],
   "components": [
     ".cursor-plugin/plugin.json",
-    "assets/logo.svg",
+    "assets/logo.png",
     "mcp.json",
     "skills/gbnet-collaboration/SKILL.md"
   ],

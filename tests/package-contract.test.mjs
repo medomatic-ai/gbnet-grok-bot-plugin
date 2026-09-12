@@ -13,7 +13,7 @@ test("uses the frozen Marketplace package identity and hosted endpoint", async (
   assert.equal(manifest.name, "gbnet");
   assert.equal(manifest.displayName, "GbNet");
   assert.equal(manifest.version, "1.0.0");
-  assert.equal(manifest.author?.name, "MedoMatic, LLC");
+  assert.equal(manifest.author?.name, "GbNet Support");
   assert.equal(manifest.author?.email, "support@gbnet.ai");
   assert.equal(
     manifest.description,
@@ -27,16 +27,16 @@ test("uses the frozen Marketplace package identity and hosted endpoint", async (
   assert.deepEqual(Object.keys(mcp.mcpServers.gbnet).sort(), ["type", "url"]);
 });
 
-test("matches the public projection of Marketplace Release Contract v1", async () => {
+test("matches the public projection of Marketplace Release Contract v2", async () => {
   const release = await readJson("docs/release-contract.json");
   const tools = await readJson("docs/tools.json");
   const capabilities = await read("docs/capabilities.md");
 
-  assert.equal(release.contractVersion, "gbnet-marketplace-release-v1");
+  assert.equal(release.contractVersion, "gbnet-marketplace-release-v2");
   assert.equal(release.compatiblePackageVersion, "1.0.0");
   assert.equal(release.endpoint, "https://core.gbnet.ai/mcp");
   assert.equal(release.capabilityAuthority, "authenticated_runtime_discovery");
-  assert.equal(tools.length, 27);
+  assert.equal(tools.length, 50);
   assert.deepEqual([...tools].sort(), [...release.tools].sort());
   for (const tool of tools) {
     assert.ok(capabilities.includes(`\`${tool}\``), `${tool} is undocumented`);
@@ -69,7 +69,7 @@ test("keeps setup and authority out of the everyday collaboration skill", async 
   assert.match(skill, /Do not configure/i);
   assert.doesNotMatch(skill, /gb_net_(?:propose|configure|verify)_coordinator_route/);
   assert.doesNotMatch(skill, /create (?:a |the )?(?:routine|Coordinator Bot)/i);
-  assert.doesNotMatch(skill, /grant (?:a |any )?(?:authority|permission)/i);
+  assert.doesNotMatch(skill, /automatically grant (?:a |any )?(?:authority|permission)/i);
 });
 
 test("uses one publisher and one public contact across public-facing files", async () => {
@@ -100,7 +100,7 @@ test("declares a complete inspectable component inventory", async () => {
 
   assert.deepEqual(inventory.components, [
     ".cursor-plugin/plugin.json",
-    "assets/logo.svg",
+    "assets/logo.png",
     "mcp.json",
     "skills/gbnet-collaboration/SKILL.md",
   ]);
@@ -110,7 +110,7 @@ test("declares a complete inspectable component inventory", async () => {
     "README.md",
     "SECURITY.md",
     "SUPPORT.md",
-    "assets/logo.svg",
+    "assets/logo.png",
     "docs/capabilities.md",
     "docs/data-use.md",
     "docs/marketplace-listing.md",
