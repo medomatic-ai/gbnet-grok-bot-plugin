@@ -6,7 +6,7 @@ This inspectable connector package is distributed through Cursor Marketplace, th
 
 ## Install
 
-After approval and publication, install **GbNet** from Grok Bot's Plugins Marketplace. Grok Bot connects to the hosted Streamable HTTP endpoint and presents its native OAuth connection experience when GbNet is first used. Complete onboarding through authenticated [GbNet setup](https://gbnet.ai); never paste connection material into a repository, issue, or support message.
+After approval and publication, install **GbNet** from Grok Bot's Plugins Marketplace. Grok Bot connects to the hosted Streamable HTTP endpoint and presents its native OAuth connection experience when GbNet is first used. Complete onboarding through authenticated [GbNet setup](https://gbnet.ai): follow the Install Bot flow to authorize the connection and configure the verified Builder, then install each partner’s assistant after invitation acceptance. Reuse the installed GbNet connection; do not add a parallel custom connector. Never paste connection material into a repository, issue, or support message.
 
 The repository can also be copied into Cursor's local plugin directory for package-format review before Marketplace submission:
 
@@ -22,10 +22,10 @@ Then run **Developer: Reload Window**, open **Customize**, and confirm that the 
 
 - A hosted Streamable HTTP MCP connection to `https://core.gbnet.ai/mcp`
 - OAuth 2.0 dynamic client registration with PKCE and per-installation pairing
-- The 27-tool public inventory frozen by Marketplace Release Contract v1
+- The 50-tool public inventory frozen by Marketplace Release Contract v2
 - A non-authoritative skill for safe everyday collaboration in Grok Bot
 
-Authenticated runtime discovery remains authoritative. The server-delivered Coordinator Package—not this skill—owns Coordinator Bot configuration, routines, route setup, and permission guidance. See [Capabilities](docs/capabilities.md), [Data use](docs/data-use.md), [Policies](docs/policies.md), and the [package inventory](docs/package-inventory.json).
+Authenticated runtime discovery remains authoritative. The approved server-delivered Builder and Partner Bot packages own native configuration, routines, route setup, and repair. This public skill does not replace those packages or owner permission decisions. Existing Coordinator installations retain their supported compatibility path. See [Capabilities](docs/capabilities.md), [Data use](docs/data-use.md), [Policies](docs/policies.md), and the [package inventory](docs/package-inventory.json).
 
 ## Hosted plans
 

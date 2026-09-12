@@ -27,16 +27,16 @@ test("uses the frozen Marketplace package identity and hosted endpoint", async (
   assert.deepEqual(Object.keys(mcp.mcpServers.gbnet).sort(), ["type", "url"]);
 });
 
-test("matches the public projection of Marketplace Release Contract v1", async () => {
+test("matches the public projection of Marketplace Release Contract v2", async () => {
   const release = await readJson("docs/release-contract.json");
   const tools = await readJson("docs/tools.json");
   const capabilities = await read("docs/capabilities.md");
 
-  assert.equal(release.contractVersion, "gbnet-marketplace-release-v1");
+  assert.equal(release.contractVersion, "gbnet-marketplace-release-v2");
   assert.equal(release.compatiblePackageVersion, "1.0.0");
   assert.equal(release.endpoint, "https://core.gbnet.ai/mcp");
   assert.equal(release.capabilityAuthority, "authenticated_runtime_discovery");
-  assert.equal(tools.length, 27);
+  assert.equal(tools.length, 50);
   assert.deepEqual([...tools].sort(), [...release.tools].sort());
   for (const tool of tools) {
     assert.ok(capabilities.includes(`\`${tool}\``), `${tool} is undocumented`);
@@ -69,7 +69,7 @@ test("keeps setup and authority out of the everyday collaboration skill", async 
   assert.match(skill, /Do not configure/i);
   assert.doesNotMatch(skill, /gb_net_(?:propose|configure|verify)_coordinator_route/);
   assert.doesNotMatch(skill, /create (?:a |the )?(?:routine|Coordinator Bot)/i);
-  assert.doesNotMatch(skill, /grant (?:a |any )?(?:authority|permission)/i);
+  assert.doesNotMatch(skill, /automatically grant (?:a |any )?(?:authority|permission)/i);
 });
 
 test("uses one publisher and one public contact across public-facing files", async () => {

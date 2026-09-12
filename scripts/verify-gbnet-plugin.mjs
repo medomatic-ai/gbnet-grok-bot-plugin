@@ -35,7 +35,8 @@ assert.match(skill, /^---\nname: gbnet-collaboration\ndescription: .+\n---\n/);
 for (const tool of expectedTools) {
   assert.ok(capabilities.includes(`\`${tool}\``), `Capability inventory is missing ${tool}`);
 }
-assert.equal(new Set(expectedTools).size, 27);
+assert.equal(new Set(expectedTools).size, expectedTools.length);
+assert.ok(expectedTools.length > 0);
 
 const resourceResponse = await fetch(`${endpoint}/.well-known/oauth-protected-resource/mcp`);
 assert.equal(resourceResponse.status, 200);
@@ -73,4 +74,4 @@ assert.match(
   /resource_metadata="https:\/\/core\.gbnet\.ai\/\.well-known\/oauth-protected-resource\/mcp"/,
 );
 
-console.log("GbNet Grok Bot package validation passed (27 tools documented; production OAuth and MCP challenge healthy).");
+console.log(`GbNet Grok Bot package validation passed (${expectedTools.length} tools documented; production OAuth and MCP challenge healthy).`);
