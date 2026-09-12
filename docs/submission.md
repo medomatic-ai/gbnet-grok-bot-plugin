@@ -45,9 +45,9 @@ Do not submit until the exact repository exists at the candidate URL, public CI 
 
 The refreshed candidate exposes 50 Core tools and the v2 release contract. Fresh onboarding uses the Installer, the owner's Builder, and a scoped Partner Bot for each Trusted Partnership; retained Coordinator installations remain a compatibility path. Do not use a historical Coordinator-only run as acceptance for the new journey.
 
-Private marketplace testing is currently unavailable: the publisher account has no Teams/Enterprise marketplace, and the owner reported the Teams upgrade could not complete. The owner authorized available test paths with this gap documented. Package validation, source parity, protocol tests and custom-connector tests do not prove private marketplace distribution or installed-connector reuse. Record native acceptance as pending until actually observed; Cursor's reviewer may require additional evidence.
+A private test marketplace has been created after the publisher obtained Teams. Import of the candidate and native acceptance remain pending the required GitHub connection. Package validation, source parity, protocol tests and custom-connector tests do not prove private marketplace distribution or installed-connector reuse. Record native acceptance as pending until actually observed; Cursor's reviewer may require additional evidence.
 
-When a team marketplace becomes available, import the exact candidate, authenticate disposable accounts, and verify: tool discovery, reuse of the installed connector during Installer/Builder setup, one Free partnership, a deliberate Partner Message, permission denial before owner approval, revocation, and retained-installation reconnection without duplicate connectors. Preserve existing owner Bots and tests. Record only sanitized identifiers, versions, results and timestamps.
+In the private test marketplace, import the exact candidate, authenticate disposable accounts, and verify: tool discovery, reuse of the installed connector during Installer/Builder setup, one Free partnership, a deliberate Partner Message, permission denial before owner approval, revocation, and retained-installation reconnection without duplicate connectors. Preserve existing owner Bots and tests. Record only sanitized identifiers, versions, results and timestamps.
 
 ## Publisher form worksheet
 
