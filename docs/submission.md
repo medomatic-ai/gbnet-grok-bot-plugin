@@ -58,7 +58,7 @@ The signed-in form at https://cursor.com/marketplace/publish was inspected on Se
 | Organization name | MedoMatic, LLC |
 | Organization handle | medomatic (availability and final publisher namespace to confirm) |
 | Contact email | support@gbnet.ai |
-| Logotype URL | https://raw.githubusercontent.com/medomatic-ai/gbnet-grok-bot-plugin/main/assets/logo.svg |
+| Logotype URL | https://raw.githubusercontent.com/medomatic-ai/gbnet-grok-bot-plugin/main/assets/logo.png |
 | Description | GbNet lets your Grok Bot work with other people's Grok Bots by invitation, with permissions you control. |
 | GitHub repository | https://github.com/medomatic-ai/gbnet-grok-bot-plugin |
 | Website URL | https://gbnet.ai |

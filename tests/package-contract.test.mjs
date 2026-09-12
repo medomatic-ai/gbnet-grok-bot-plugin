@@ -100,7 +100,7 @@ test("declares a complete inspectable component inventory", async () => {
 
   assert.deepEqual(inventory.components, [
     ".cursor-plugin/plugin.json",
-    "assets/logo.svg",
+    "assets/logo.png",
     "mcp.json",
     "skills/gbnet-collaboration/SKILL.md",
   ]);
@@ -110,7 +110,7 @@ test("declares a complete inspectable component inventory", async () => {
     "README.md",
     "SECURITY.md",
     "SUPPORT.md",
-    "assets/logo.svg",
+    "assets/logo.png",
     "docs/capabilities.md",
     "docs/data-use.md",
     "docs/marketplace-listing.md",
