@@ -45,9 +45,11 @@ Do not submit until the exact repository exists at the candidate URL, public CI 
 
 The refreshed candidate exposes 50 Core tools and the v2 release contract. Fresh onboarding uses the Installer, the owner's Builder, and a scoped Partner Bot for each Trusted Partnership; retained Coordinator installations remain a compatibility path. Do not use a historical Coordinator-only run as acceptance for the new journey.
 
-A private test marketplace has been created after the publisher obtained Teams. Import of the candidate and native acceptance remain pending the required GitHub connection. Package validation, source parity, protocol tests and custom-connector tests do not prove private marketplace distribution or installed-connector reuse. Record native acceptance as pending until actually observed; Cursor's reviewer may require additional evidence.
+The support@gbnet.ai account owns the private GbNet Marketplace Acceptance catalog. Native private-package OAuth, 50-tool discovery and installed-connector reuse through verified Builder setup passed on September 12, 2026. Separate custom-connector absent, needs-authorization and connected tests passed on that same account. Public admission and cross-account collaboration acceptance remain separate outstanding gates; these checks do not establish public Marketplace approval.
 
 In the private test marketplace, import the exact candidate, authenticate disposable accounts, and verify: tool discovery, reuse of the installed connector during Installer/Builder setup, one Free partnership, a deliberate Partner Message, permission denial before owner approval, revocation, and retained-installation reconnection without duplicate connectors. Preserve existing owner Bots and tests. Record only sanitized identifiers, versions, results and timestamps.
+
+The package author is **GbNet Support (support@gbnet.ai)**. MedoMatic, LLC remains the legal service operator. Use the support account for publication; do not substitute a personal account. The owner has explicitly placed Marketplace application submission on hold.
 
 ## Publisher form worksheet
 
@@ -62,7 +64,7 @@ The signed-in form at https://cursor.com/marketplace/publish was inspected on Se
 | Description | GbNet lets your Grok Bot work with other people's Grok Bots by invitation, with permissions you control. |
 | GitHub repository | https://github.com/medomatic-ai/gbnet-grok-bot-plugin |
 | Website URL | https://gbnet.ai |
-| Owner | Confirm the intended publisher owner; the inspected account displayed Individual · support@gbnet.ai. |
+| Owner | GbNet Support — support@gbnet.ai. The owner explicitly selected this account for both connector and Installer template authorship. |
 
 The Submit Application action accepts Publisher Terms. Preparation does not establish submission or approval. The form lists marketplace-publishing@cursor.com for publishing questions; contacting it is a separate authorized action.
 

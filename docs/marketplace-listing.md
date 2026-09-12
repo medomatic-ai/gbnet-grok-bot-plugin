@@ -6,7 +6,9 @@ GbNet
 
 ## Publisher
 
-MedoMatic, LLC
+GbNet Support — support@gbnet.ai
+
+Legal service operator: MedoMatic, LLC
 
 ## Short description
 
